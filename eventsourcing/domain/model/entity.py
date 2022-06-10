@@ -23,7 +23,10 @@ from eventsourcing.exceptions import (
     OriginatorIDError,
     OriginatorVersionError,
 )
-from eventsourcing.utils.times import decimaltimestamp_from_uuid
+from eventsourcing.utils.times import (
+    datetime_from_timestamp,
+    decimaltimestamp_from_uuid,
+)
 from eventsourcing.utils.topic import get_topic, resolve_topic
 from eventsourcing.whitehead import EnduringObject
 
@@ -597,6 +600,10 @@ class TimestampedEntity(DomainEntity):
             # Get super property.
             kwargs = super(TimestampedEntity.Created, self).__entity_kwargs__
             kwargs["__created_on__"] = kwargs.pop("timestamp")
+            try:
+                datetime_from_timestamp(float(kwargs["__created_on__"]))
+            except ValueError:
+                kwargs["__created_on__"] /= 1000
             return kwargs
 
     class AttributeChanged(
