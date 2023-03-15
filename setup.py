@@ -32,7 +32,7 @@ cassandra_requires = ["cassandra-driver<=3.23.99999"]
 
 django_requires = ["django<=3.1.99999"]
 
-dynamodb_requires = ["pynamodb<=4.3.3"]
+dynamodb_requires = ["pynamodb<=5.4.1"]
 
 testing_requires = (
     cassandra_requires
