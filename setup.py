@@ -13,8 +13,8 @@ if "READTHEDOCS" in os.environ:
 
 install_requires = [
     "python-dateutil<=2.8.99999",
-    "pycryptodome<=3.9.99999",
-    "requests<=2.25.99999",
+    "pycryptodome<=4.0.0",
+    "requests<3.0.0",
     "readerwriterlock<=1.0.99999",
 ]
 
@@ -32,7 +32,7 @@ cassandra_requires = ["cassandra-driver<=3.23.99999"]
 
 django_requires = ["django<=3.1.99999"]
 
-dynamodb_requires = ["pynamodb<=5.4.1"]
+dynamodb_requires = ["pynamodb<=5.5.1"]
 
 testing_requires = (
     cassandra_requires
